@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
+.navbarheading {
+  font-family: Redressed;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.loginsignup {
+  width: 12vw;
+  display: flex;
+  justify-content: space-around;
+}
