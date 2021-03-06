@@ -12,7 +12,7 @@ const session = require('express-session')
 const mongoose = require('mongoose'); // mongoDB connection through moongose
 
 
-mongoose.connect("mongodb://localhost:27017/nsutDB", {
+mongoose.connect("mongodb://localhost:27017/nsutDB1", {
         useUnifiedTopology: true,
         useNewUrlParser: true,
     })
@@ -127,8 +127,18 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
+
+
 app.post('/register', (req, res) => {
-    User.register(new User({username : req.body.username}), req.body.password, function(err, user){
+    const Users = new User({ username : req.body.username,
+        fname : req.body.fname,
+        lname : req.body.lname,
+        bgroup : req.body.bgroup,
+        email: req.body.email,
+        phn : req.body.phn,
+        aadhar : req.body.aadhar
+         });
+    User.register(Users, req.body.password, function(err, user){
         if(err){
             console.log(err)
             // res.send(err)
