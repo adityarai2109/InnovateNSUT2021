@@ -7,6 +7,7 @@ const port = process.env.PORT || 3000;
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const passportLocalMongoose = require('passport-local-mongoose')
+const session = require('express-session')
 
 const mongoose = require('mongoose'); // mongoDB connection through moongose
 
@@ -33,11 +34,23 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-app.use(bodyParser.urlencoded({ // used to get posted date on page 
-    extended: true
+// app.use(bodyParser.urlencoded({ // used to get posted date on page 
+//     extended: true
+// }))
+
+app.use(session({
+    name : "sid",
+    cookie : {
+        maxAge : 1000*6000,
+        sameSite : true,
+    },
+    secret : "mysecret",
+    resave : false,
+    saveUninitialized : false
 }))
 
 app.use(passport.initialize())
+app.use(passport.session())
 
 app.get('/', (req, res) =>{
     if(req.isAuthenticated()){
@@ -69,7 +82,7 @@ app.get('/register', (req, res) => {
 app.get('/home', (req, res) => {
     
     if(req.isAuthenticated()){
-        res.render('main')
+        res.send('Home')
     }
     else {
         res.redirect('/login')
