@@ -96,7 +96,25 @@ const userSchema = new mongoose.Schema ({
     } ,
     password:{
         type : String
-    } 
+    } ,
+    fname:{
+        type : String
+    },
+    lname:{
+        type : String
+    },
+    bgroup : {
+        type : String
+    },
+    email:{
+        type : String
+    },
+    phn :{
+        type : String
+    },
+    aadhar:{
+        type: String
+    }
 });
 
 userSchema.plugin(passportLocalMongoose)
@@ -113,11 +131,12 @@ app.post('/register', (req, res) => {
     User.register(new User({username : req.body.username}), req.body.password, function(err, user){
         if(err){
             console.log(err)
+            // res.send(err)
             res.redirect('/register')
         }
         else{
             passport.authenticate('local')(req, res, function(){
-                res.redirect('/home')
+                res.redirect('/')
             })
         }
     })
