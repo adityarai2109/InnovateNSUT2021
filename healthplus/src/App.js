@@ -69,7 +69,7 @@ function App() {
                 <Carousel.Item interval={1000}>
                   <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=373940"
+                    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftherightsofnature.org%2Fwhat-is-rights-of-nature%2F&psig=AOvVaw00kQih50PhmZr89NL5fIW0&ust=1615213802050000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNCYwOiznu8CFQAAAAAdAAAAABAD"
                     alt="First slide"
                   />
                   <Carousel.Caption>
