@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
 body {
-  background-color: rgb(143, 143, 143);
+  background-color: rgb(43, 43, 43);
   color: #000;
 }
 .navbarheading {
@@ -18,8 +18,22 @@ body {
   display: flex;
   justify-content: space-around;
 }
-.head {
+.maps {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+}
+.map {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tableheadings {
   text-align: center;
   font-size: 2rem;
-  font-family: "Times New Roman", Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  padding: 1rem;
+}
+.hospitaldesc > li {
+  list-style-type: none;
 }
