@@ -32,3 +32,14 @@ body {
 .hospitaldesc > li {
   list-style-type: none;
 }
+.social-container {
+  padding: 25px 50px;
+}
+a.social {
+  margin: 0 2rem;
+  transition: transform 250ms;
+  display: inline-block;
+}
+a.social:hover {
+  transform: translateY(-2px);
+}
