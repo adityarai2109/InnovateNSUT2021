@@ -10,6 +10,7 @@ import { Table } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Carousel, Card, ListGroup } from "react-bootstrap";
 import Bookanappointment from "./Components/Bookanappointment";
+import SocialFollow from "./SocialFollow";
 function App() {
   return (
     <div className="App">
@@ -185,6 +186,7 @@ function App() {
             </Carousel>
           </div>
         </div>
+
         <div className="pricing"></div>
       </div>
       <div className="myappointments">
@@ -291,6 +293,7 @@ function App() {
           </div>
           {/* Grid container */}
           {/* Copyright */}
+          <SocialFollow />
           <div
             className="text-center p-3"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
