@@ -8,13 +8,8 @@ body {
   font-size: 2.5rem;
   font-weight: bold;
 }
-.loginsignup {
-  width: 12vw;
-  display: flex;
-  justify-content: space-around;
-}
 .snb {
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
 }

@@ -8,9 +8,8 @@ import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 import { Container } from "react-bootstrap";
-import { Carousel, Accordion, Card, ListGroup } from "react-bootstrap";
-import Iframe from "react-iframe";
-
+import { Carousel, Card, ListGroup } from "react-bootstrap";
+import Bookanappointment from "./Components/Bookanappointment";
 function App() {
   return (
     <div className="App">
@@ -19,10 +18,7 @@ function App() {
           <Navbar.Brand className="navbarheading" href="#home">
             Health+
           </Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
+          <Nav className="mr-auto"></Nav>
           <div className="snb">
             <Form inline>
               <FormControl
@@ -32,6 +28,7 @@ function App() {
               />
               <Button variant="outline-success">Search</Button>
             </Form>
+            <Button variant="danger">Emergency</Button>
             <Form inline>
               <Button variant="outline-primary" className="mr-2">
                 Log In
@@ -193,16 +190,18 @@ function App() {
       <div className="myappointments">
         <Container>
           <Card variant="dark" style={{ width: "100%" }}>
-            <Card.Header>My Appointments</Card.Header>
+            <Card.Header className="tableheadings" style={{ color: "black" }}>
+              My Appointments
+            </Card.Header>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>1</th>
+                      <th>Dr. XYZ</th>
+                      <th>ABC hospital</th>
+                      <th>Date and time</th>
                     </tr>
                   </thead>
                 </Table>
@@ -211,10 +210,10 @@ function App() {
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>2</th>
+                      <th>Dr. XYZ</th>
+                      <th>ABC hospital</th>
+                      <th>Date and time</th>
                     </tr>
                   </thead>
                 </Table>
@@ -223,10 +222,10 @@ function App() {
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>Username</th>
+                      <th>3</th>
+                      <th>Dr. XYZ</th>
+                      <th>ABC hospital</th>
+                      <th>Date and time</th>
                     </tr>
                   </thead>
                 </Table>
@@ -235,6 +234,7 @@ function App() {
           </Card>
         </Container>
       </div>
+      <Bookanappointment />
       <div className="footer">
         {/* Footer */}
         <footer className="bg-dark text-center text-white">
