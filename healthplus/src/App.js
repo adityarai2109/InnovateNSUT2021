@@ -238,7 +238,7 @@ function App() {
       </div>
       <Bookanappointment />
       <div className="footer">
-        {/* Footer */}
+        {/*Footer */}
         <footer className="bg-dark text-center text-white">
           {/* Grid container */}
           <div className="container p-4">
@@ -305,7 +305,7 @@ function App() {
           </div>
           {/* Copyright */}
         </footer>
-        {/* Footer */}
+        {/* Footer*/}
       </div>
     </div>
   );
