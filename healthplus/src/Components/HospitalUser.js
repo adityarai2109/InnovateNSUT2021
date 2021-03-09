@@ -1,69 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import { Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
-import { Button } from "react-bootstrap";
-import { Table } from "react-bootstrap";
-import { Container } from "react-bootstrap";
-import { Carousel, Card, ListGroup } from "react-bootstrap";
-import Bookanappointment from "./Components/Bookanappointment";
-import SocialFollow from "./SocialFollow";
+import { Button, Card, DropdownButton, Dropdown, Table } from "react-bootstrap";
+import SocialFollow from "../SocialFollow";
+import Bookanappointment from "./Bookanappointment";
+import "../App.js";
 
-import best_hospitals from "./best_hospitals_data.jsx";
-
-import HospitalImage from "./Components/ktvcubzt.bmp";
-import Hospital from "./Components/hospital";
-import HospitalUser from "./Components/HospitalUser";
-
-
-function get_item(item)
-{
-    return(
-        <Carousel.Item interval={1000} className="carouselitem">
-        <Container>
-          <h4 className="tableheadings">Best hospitals for {item.category} </h4>
-          <Table striped bordered hover variant="dark">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Hospital Name</th>
-                <th>Address </th>
-                <th>Book an appointment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td> {item.hospital1.name}</td>
-                <td>{item.hospital1.address}</td>
-                <td> <button > <a href = {`/${item.hospital1.name}`}> Book </a> </button> </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td> {item.hospital2.name}</td>
-                <td>{item.hospital2.address}</td>
-                <td> <button > <a href = {`/${item.hospital2.name}`}> Book </a> </button> </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td> {item.hospital3.name}</td>
-                <td>{item.hospital3.address}</td>
-                <td> <button > <a href = {`/${item.hospital3.name} `}  target = "_blank"> Book </a> </button> </td>
-              </tr>
-            </tbody>
-          </Table>
-        </Container>
-      </Carousel.Item>
-    );
-}
-
-
-function App() {
+export default function HospitalUser() {
   return (
-    <div className="App">
+    <div className="hospital">
       <>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand className="navbarheading" href="#home">
@@ -89,10 +37,9 @@ function App() {
           </div>
         </Navbar>
       </>
-
       <div className="famousHospitals">
         <div className="maps">
-          <h2 className="tableheadings">Hospitals Near You </h2>
+          <h2 className="tableheadings">Hospitals name </h2>
           <div className="map">
             <iframe
               src="https://maps.google.com/maps?width=700&height=440&hl=en&q=London%2C%20United%20Kingdom+(eatrs)&ie=UTF8&t=&z=10&iwloc=B&output=embed"
@@ -103,16 +50,17 @@ function App() {
             />
 
             <Card style={{ width: "20vw", height: "600px" }}>
-              <Card.Img variant="top" src={HospitalImage} />
+              <Card.Img
+                variant="top"
+                src="https://source.unsplash.com/random/600x500"
+              />
               <Card.Body>
                 <Card.Title>Hospital's name</Card.Title>
                 <Card.Text>
                   <ul className="hospitaldesc" style={{ textAlign: "left" }}>
                     <li>
                       Description : Some quick example text to build on the card
-                      title and make up the bulk of the card's content. Lorem,
-                      ipsum dolor sit amet consectetur adipisicing elit. Enim
-                      veniam sunt, eum quo nam earum.
+                      title and make up the bulk of the card's content.
                     </li>
                     <li>Address : esgrtdh</li>
                     <li>Email : fdzgxf@gxfhgcn.com</li>
@@ -124,71 +72,112 @@ function App() {
             </Card>
           </div>
         </div>
-
-
-
-        <div className="FHcontainer">
-          <div className="hospitaltable">
-            <Carousel>
-
-                {best_hospitals.map( (item) => { return (get_item(item) )} )}
-              
-            </Carousel>
-          </div>
-        </div>
-
-        <div className="pricing"></div>
       </div>
-      <div className="myappointments">
+
+      <div className="beds">
         <Container>
-          <Card variant="dark" style={{ width: "100%" }}>
+          <Card>
             <Card.Header className="tableheadings" style={{ color: "black" }}>
-              My Appointments
+              Beds Status
             </Card.Header>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                <Table striped bordered hover variant="dark">
-                  <thead>
-                    <tr>
-                      <th>1</th>
-                      <th>Dr. XYZ</th>
-                      <th>ABC hospital</th>
-                      <th>Date and time</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Table striped bordered hover variant="dark">
-                  <thead>
-                    <tr>
-                      <th>2</th>
-                      <th>Dr. XYZ</th>
-                      <th>ABC hospital</th>
-                      <th>Date and time</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Table striped bordered hover variant="dark">
-                  <thead>
-                    <tr>
-                      <th>3</th>
-                      <th>Dr. XYZ</th>
-                      <th>ABC hospital</th>
-                      <th>Date and time</th>
-                    </tr>
-                  </thead>
-                </Table>
-              </ListGroup.Item>
-            </ListGroup>
+            <Card.Body>
+              <Form>
+                <Form.Row className="bedStatus">
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Floor</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Total Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Occupied Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>ICU Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>COVID-19 Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Available Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Form.Row>
+              </Form>
+            </Card.Body>
           </Card>
         </Container>
       </div>
-
+      <div className="pricing">
+        <Container>
+          <Card>
+            <Card.Header className="tableheadings" style={{ color: "black" }}>
+              Pricing
+            </Card.Header>
+            <Card.Body>
+              <Container>
+                <Form.Group>
+                  <Form.Control as="select">
+                    <option>Default select</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control as="select">
+                    <option>Default select</option>
+                  </Form.Control>
+                </Form.Group>
+              </Container>
+            </Card.Body>
+          </Card>
+        </Container>
+      </div>
+      <div className="ScheduledAppointments tableheadings">
+        Scheduled Appointments
+      </div>
+      {/* footer */}
       <div className="footer">
-        {/*Footer */}
+        {/* Footer */}
         <footer className="bg-dark text-center text-white">
           {/* Grid container */}
           <div className="container p-4">
@@ -255,12 +244,8 @@ function App() {
           </div>
           {/* Copyright */}
         </footer>
-        {/* Footer*/}
+        {/* Footer */}
       </div>
-      <Hospital />
-      <HospitalUser />
     </div>
   );
 }
-
-export default App;

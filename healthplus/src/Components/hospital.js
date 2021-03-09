@@ -1,42 +1,42 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import { Navbar } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
-import { Button } from "react-bootstrap";
-import SocialFollow from "./SocialFollow";
+import { Button, Card, DropdownButton, Dropdown, Table } from "react-bootstrap";
+import SocialFollow from "../SocialFollow";
+import Bookanappointment from "./Bookanappointment";
 
 function hospital() {
-    return (
-      <div className="hospital">
-        <>
-          <Navbar bg="dark" variant="dark">
-            <Navbar.Brand className="navbarheading" href="#home">
-              Health+
-            </Navbar.Brand>
-            <Nav className="mr-auto"></Nav>
-            <div className="snb">
-              <Form inline>
-                <FormControl
-                  type="text"
-                  placeholder="Search"
-                  className="mr-sm-2"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
-              <Button variant="danger">Emergency</Button>
-              <Form inline>
-                <Button variant="outline-primary" className="mr-2">
-                  Log In
-                </Button>
-                <Button variant="outline-light">Sign Up</Button>
-              </Form>
-            </div>
-          </Navbar>
-        </>
-        <div className="famousHospitals">
+  return (
+    <div className="hospital">
+      <>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand className="navbarheading" href="#home">
+            Health+
+          </Navbar.Brand>
+          <Nav className="mr-auto"></Nav>
+          <div className="snb">
+            <Form inline>
+              <FormControl
+                type="text"
+                placeholder="Search"
+                className="mr-sm-2"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+            <Button variant="danger">Emergency</Button>
+            <Form inline>
+              <Button variant="outline-primary" className="mr-2">
+                Log In
+              </Button>
+              <Button variant="outline-light">Sign Up</Button>
+            </Form>
+          </div>
+        </Navbar>
+      </>
+      <div className="famousHospitals">
         <div className="maps">
           <h2 className="tableheadings">Hospitals name </h2>
           <div className="map">
@@ -71,15 +71,59 @@ function hospital() {
             </Card>
           </div>
         </div>
-</div>
-//dropdown
-        <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </DropdownButton>
-     
-//footer
+      </div>
+
+      <div className="beds">
+        <Container>
+          <Card>
+            <Card.Header className="tableheadings" style={{ color: "black" }}>
+              Beds Status
+            </Card.Header>
+            <Card.Body>
+              <Table striped bordered hover variant="dark">
+                <thead>
+                  <tr>
+                    <th>Floor</th>
+                    <th>Total Beds</th>
+                    <th>Occupied Beds</th>
+                    <th>ICU Beds</th>
+                    <th>COVID-19 Beds</th>
+                    <th>Available Beds</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>100</td>
+                    <td>30</td>
+                    <td>10</td>
+                    <td>500</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>100</td>
+                    <td>30</td>
+                    <td>10</td>
+                    <td>500</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>100</td>
+                    <td>30</td>
+                    <td>10</td>
+                    <td>500</td>
+                    <td>10</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </Container>
+      </div>
+      <Bookanappointment />
+      {/* footer */}
       <div className="footer">
         {/* Footer */}
         <footer className="bg-dark text-center text-white">
@@ -150,9 +194,7 @@ function hospital() {
         </footer>
         {/* Footer */}
       </div>
-      </div>
-
-
-    );
+    </div>
+  );
 }
 export default hospital;
