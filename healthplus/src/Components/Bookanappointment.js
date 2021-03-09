@@ -105,8 +105,8 @@ export default function Bookanappointment() {
                   <Form.Control placeholder="Specify your reason to visit" />
                 </Form.Group>
 
-                <Button variant="success" type="submit">
-                  Book
+                <Button variant="primary" size="lg" type="submit">
+                Book
                 </Button>
               </Form>
             </FormGroup>
