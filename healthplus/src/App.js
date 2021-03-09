@@ -11,6 +11,10 @@ import { Container } from "react-bootstrap";
 import { Carousel, Card, ListGroup } from "react-bootstrap";
 import Bookanappointment from "./Components/Bookanappointment";
 import SocialFollow from "./SocialFollow";
+import HospitalImage from "./Components/ktvcubzt.bmp";
+import Hospital from "./Components/hospital";
+import HospitalUser from "./Components/HospitalUser";
+
 function App() {
   return (
     <div className="App">
@@ -53,17 +57,16 @@ function App() {
             />
 
             <Card style={{ width: "20vw", height: "600px" }}>
-              <Card.Img
-                variant="top"
-                src="https://source.unsplash.com/random/600x500"
-              />
+              <Card.Img variant="top" src={HospitalImage} />
               <Card.Body>
                 <Card.Title>Hospital's name</Card.Title>
                 <Card.Text>
                   <ul className="hospitaldesc" style={{ textAlign: "left" }}>
                     <li>
                       Description : Some quick example text to build on the card
-                      title and make up the bulk of the card's content.
+                      title and make up the bulk of the card's content. Lorem,
+                      ipsum dolor sit amet consectetur adipisicing elit. Enim
+                      veniam sunt, eum quo nam earum.
                     </li>
                     <li>Address : esgrtdh</li>
                     <li>Email : fdzgxf@gxfhgcn.com</li>
@@ -236,7 +239,7 @@ function App() {
           </Card>
         </Container>
       </div>
-      <Bookanappointment />
+
       <div className="footer">
         {/*Footer */}
         <footer className="bg-dark text-center text-white">
@@ -307,6 +310,8 @@ function App() {
         </footer>
         {/* Footer*/}
       </div>
+      <Hospital />
+      <HospitalUser />
     </div>
   );
 }

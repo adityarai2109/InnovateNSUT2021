@@ -7,8 +7,9 @@ import Form from "react-bootstrap/Form";
 import { Button, Card, DropdownButton, Dropdown, Table } from "react-bootstrap";
 import SocialFollow from "../SocialFollow";
 import Bookanappointment from "./Bookanappointment";
+import "../App.js";
 
-function hospital() {
+export default function HospitalUser() {
   return (
     <div className="hospital">
       <>
@@ -80,49 +81,100 @@ function hospital() {
               Beds Status
             </Card.Header>
             <Card.Body>
-              <Table striped bordered hover variant="dark">
-                <thead>
-                  <tr>
-                    <th>Floor</th>
-                    <th>Total Beds</th>
-                    <th>Occupied Beds</th>
-                    <th>ICU Beds</th>
-                    <th>COVID-19 Beds</th>
-                    <th>Available Beds</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>100</td>
-                    <td>30</td>
-                    <td>10</td>
-                    <td>500</td>
-                    <td>10</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>100</td>
-                    <td>30</td>
-                    <td>10</td>
-                    <td>500</td>
-                    <td>10</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>100</td>
-                    <td>30</td>
-                    <td>10</td>
-                    <td>500</td>
-                    <td>10</td>
-                  </tr>
-                </tbody>
-              </Table>
+              <Form>
+                <Form.Row className="bedStatus">
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Floor</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Total Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Occupied Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>ICU Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>COVID-19 Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label>Available Beds</Form.Label>
+                    <Form.Control as="select" custom>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Form.Row>
+              </Form>
             </Card.Body>
           </Card>
         </Container>
       </div>
-      <Bookanappointment />
+      <div className="pricing">
+        <Container>
+          <Card>
+            <Card.Header className="tableheadings" style={{ color: "black" }}>
+              Pricing
+            </Card.Header>
+            <Card.Body>
+              <Container>
+                <Form.Group>
+                  <Form.Control as="select">
+                    <option>Default select</option>
+                  </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                  <Form.Control as="select">
+                    <option>Default select</option>
+                  </Form.Control>
+                </Form.Group>
+              </Container>
+            </Card.Body>
+          </Card>
+        </Container>
+      </div>
+      <div className="ScheduledAppointments tableheadings">
+        Scheduled Appointments
+      </div>
       {/* footer */}
       <div className="footer">
         {/* Footer */}
@@ -197,4 +249,3 @@ function hospital() {
     </div>
   );
 }
-export default hospital;
