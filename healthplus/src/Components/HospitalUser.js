@@ -8,6 +8,8 @@ import { Button, Card, DropdownButton, Dropdown, Table } from "react-bootstrap";
 import SocialFollow from "../SocialFollow";
 import Bookanappointment from "./Bookanappointment";
 import "../App.js";
+import ImageCarousel from "../ImageCarousel";
+
 
 export default function HospitalUser() {
   return (
@@ -39,7 +41,7 @@ export default function HospitalUser() {
       </>
       <div className="famousHospitals">
         <div className="maps">
-          <h2 className="tableheadings">Hospitals name </h2>
+          <h2 className="tableheadings">Hospitals name(Users) </h2>
           <div className="map">
             <iframe
               src="https://maps.google.com/maps?width=700&height=440&hl=en&q=London%2C%20United%20Kingdom+(eatrs)&ie=UTF8&t=&z=10&iwloc=B&output=embed"
@@ -73,6 +75,8 @@ export default function HospitalUser() {
           </div>
         </div>
       </div>
+
+      <ImageCarousel/>
 
       <div className="beds">
         <Container>

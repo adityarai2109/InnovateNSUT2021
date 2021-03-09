@@ -32,8 +32,16 @@ body {
 .hospitaldesc > li {
   list-style-type: none;
 }
+.beds{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.footer{
+  margin-top: 20px;
+}
 .social-container {
   padding: 25px 50px;
+  
 }
 a.social {
   margin: 0 2rem;
@@ -62,4 +70,9 @@ a.instagram {
 .bedStatus {
   display: flex;
   justify-content: space-around;
+}
+.sliderimg{
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
 }
