@@ -11,6 +11,51 @@ import { Container } from "react-bootstrap";
 import { Carousel, Card, ListGroup } from "react-bootstrap";
 import Bookanappointment from "./Components/Bookanappointment";
 import SocialFollow from "./SocialFollow";
+
+import best_hospitals from "./best_hospitals_data.jsx";
+
+
+function get_item(item)
+{
+    return(
+        <Carousel.Item interval={1000} className="carouselitem">
+        <Container>
+          <h4 className="tableheadings">Best hospitals for {item.category} </h4>
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Hospital Name</th>
+                <th>Address </th>
+                <th>Book an appointment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td> {item.hospital1.name}</td>
+                <td>{item.hospital1.address}</td>
+                <td> <button > <a href = {`/${item.hospital1.name}`}> Book </a> </button> </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td> {item.hospital2.name}</td>
+                <td>{item.hospital2.address}</td>
+                <td> <button > <a href = {`/${item.hospital2.name}`}> Book </a> </button> </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td> {item.hospital3.name}</td>
+                <td>{item.hospital3.address}</td>
+                <td> <button > <a href = {`/${item.hospital3.name} `}  target = "_blank"> Book </a> </button> </td>
+              </tr>
+            </tbody>
+          </Table>
+        </Container>
+      </Carousel.Item>
+    );
+}
+
 function App() {
   return (
     <div className="App">
@@ -75,114 +120,15 @@ function App() {
             </Card>
           </div>
         </div>
+
+
+
         <div className="FHcontainer">
           <div className="hospitaltable">
             <Carousel>
-              <Carousel.Item interval={1000} className="carouselitem">
-                <Container>
-                  <h4 className="tableheadings">Best hospitals for Kidney</h4>
-                  <Table striped bordered hover variant="dark">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thosrhtjdyfkrnton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </Container>
-              </Carousel.Item>
-              <Carousel.Item interval={1000} className="carouselitem">
-                <Container>
-                  <h4 className="tableheadings">Best hospitals for Kidney</h4>
-                  <Table striped bordered hover variant="dark">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thosrhtjdyfkrnton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </Container>
-              </Carousel.Item>
-              <Carousel.Item interval={1000} className="carouselitem">
-                <Container>
-                  <h4 className="tableheadings">Best hospitals for Kidney</h4>
-                  <Table striped bordered hover variant="dark">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thosrhtjdyfkrnton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </Container>
-              </Carousel.Item>
+
+                {best_hospitals.map( (item) => { return (get_item(item) )} )}
+              
             </Carousel>
           </div>
         </div>
