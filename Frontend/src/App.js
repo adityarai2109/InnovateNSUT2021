@@ -63,7 +63,6 @@ function get_item(item)
     );
 }
 
-
 function App() {
   return (
     <div className="App">
@@ -131,14 +130,12 @@ function App() {
           </div>
         </div>
 
-
-
         <div className="FHcontainer">
           <div className="hospitaltable">
             <Carousel>
-
-                {best_hospitals.map( (item) => { return (get_item(item) )} )}
-              
+              {best_hospitals.map((item) => {
+                return get_item(item);
+              })}
             </Carousel>
           </div>
         </div>

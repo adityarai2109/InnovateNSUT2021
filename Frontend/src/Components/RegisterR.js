@@ -15,9 +15,9 @@ export default function RegisterR() {
                             <Container style={{padding:"2rem"}}>
 
                             <div className="form-group">
-                                <label>First name</label>
+                                <label for="username">Username</label>
                                 <input
-                                    type="text"
+                                    type=""
                                     className="form-control"
                                     placeholder="First name"
                                 />
