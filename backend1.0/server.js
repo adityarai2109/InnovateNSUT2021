@@ -53,7 +53,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.get('/hello', (req, res) =>{
-    res.send("myHello")
+    res.send("MyHello")
 })
 
 app.get('/', (req, res) =>{

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Backendtest() {
-    const [backendData, setBackendData] = useState({ data: [] });
+    const [backendData, setBackendData] = useState([]);
     useEffect(() => {
         axios
             .get("/allusers")
             .then(function (response) {
-                console.log(typeof(response.data));
-                setBackendData({ data: response.data });
-                console.log(backendData)
+                const bdata = response.data
+                setBackendData(bdata[1].username);
+                console.log(bdata[1].username)
             })
             .catch(function (error) {
                 console.log(error);
@@ -17,7 +17,7 @@ export default function Backendtest() {
     }, []);
     return (
         <div>
-            <h1 style={{ color: "white" }}>{}hi</h1>
+            <h1 style={{ color: "white" }}>{backendData}hi</h1>
         </div>
     );
 }
