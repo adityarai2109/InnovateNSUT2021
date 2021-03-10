@@ -4,7 +4,7 @@ import { Container, Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
-import { Button, Card, DropdownButton, Dropdown, Table } from "react-bootstrap";
+import { Button, Card, Table } from "react-bootstrap";
 import SocialFollow from "../SocialFollow";
 import Bookanappointment from "./Bookanappointment";
 
@@ -46,6 +46,8 @@ function hospital() {
               width={800}
               height={600}
               frameBorder={0}
+              title={"ourMap"}
+
             />
 
             <Card style={{ width: "20vw", height: "600px" }}>

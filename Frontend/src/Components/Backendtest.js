@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Backendtest() {
-    const [backendData, setBackendData] = useState({data:""});
+export default function Backendtest() {
+    const [backendData, setBackendData] = useState({ data: [] });
     useEffect(() => {
         axios
-            .get("/hello")
+            .get("/allusers")
             .then(function (response) {
-                console.log(response);
-                setBackendData({data:response.data});
+                console.log(typeof(response.data));
+                setBackendData({ data: response.data });
+                console.log(backendData)
             })
             .catch(function (error) {
-                console.log("error");
-            })
+                console.log(error);
+            });
     }, []);
-    return <div>
-        <h1 style={{color:"white"}}>{backendData.data}hi</h1>
-    </div>;
+    return (
+        <div>
+            <h1 style={{ color: "white" }}>{}hi</h1>
+        </div>
+    );
 }
-
-export default Backendtest;
 
 // import React, { Component } from 'react'
 // import axios from "axios";
@@ -43,7 +44,7 @@ export default Backendtest;
 
 //     this.setState({data: "HelloTest"});
 //     // changeColor = () => {
-    // this.setState({color: "blue"});
+// this.setState({color: "blue"});
 //     // }
 
 //     render() {
@@ -51,7 +52,7 @@ export default Backendtest;
 
 //             <div style={{color:"white"}}>
 //                 {this.state.data} frontendhello
-                /* <button
+/* <button
                 type="button"
                 onClick={this.changeColor}
                 >Change color</button> */
