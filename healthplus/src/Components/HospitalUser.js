@@ -149,7 +149,11 @@ export default function HospitalUser() {
                   </Form.Group>
                 </Form.Row>
               </Form>
+              <Button variant="primary" size="lg" type="submit">
+              Save
+              </Button>
             </Card.Body>
+            
           </Card>
         </Container>
       </div>
@@ -163,15 +167,22 @@ export default function HospitalUser() {
               <Container>
                 <Form.Group>
                   <Form.Control as="select">
-                    <option>Default select</option>
+                    <option>Beds </option><i>1190</i>
+                    <option> ICU</option>
+                    <option>Default select </option>
+                    <option>Default select </option>
                   </Form.Control>
                 </Form.Group>
                 <Form.Group>
                   <Form.Control as="select">
-                    <option>Default select</option>
+                    <option>surgery</option>
                   </Form.Control>
                 </Form.Group>
               </Container>
+
+              <Button variant="primary" size="lg" type="submit">
+              Save
+              </Button>
             </Card.Body>
           </Card>
         </Container>
