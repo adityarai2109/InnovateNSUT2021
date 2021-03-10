@@ -18,48 +18,69 @@ import HospitalImage from "./Components/ktvcubzt.bmp";
 import Hospital from "./Components/hospital";
 import HospitalUser from "./Components/HospitalUser";
 
-
-function get_item(item)
-{
-    return(
-        <Carousel.Item interval={1000} className="carouselitem">
-        <Container>
-          <h4 className="tableheadings">Best hospitals for {item.category} </h4>
-          <Table striped bordered hover variant="dark">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Hospital Name</th>
-                <th>Address </th>
-                <th>Book an appointment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td> {item.hospital1.name}</td>
-                <td>{item.hospital1.address}</td>
-                <td> <button > <a href = {`/${item.hospital1.name}`}> Book </a> </button> </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td> {item.hospital2.name}</td>
-                <td>{item.hospital2.address}</td>
-                <td> <button > <a href = {`/${item.hospital2.name}`}> Book </a> </button> </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td> {item.hospital3.name}</td>
-                <td>{item.hospital3.address}</td>
-                <td> <button > <a href = {`/${item.hospital3.name} `}  target = "_blank"> Book </a> </button> </td>
-              </tr>
-            </tbody>
-          </Table>
-        </Container>
-      </Carousel.Item>
-    );
+function get_item(item) {
+  return (
+    <Carousel.Item interval={1000} className="carouselitem">
+      <Container>
+        <h4 className="tableheadings">Best hospitals for {item.category} </h4>
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Hospital Name</th>
+              <th>Address </th>
+              <th>Book an appointment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td> {item.hospital1.name}</td>
+              <td>{item.hospital1.address}</td>
+              <td>
+                <Button
+                  variant="success"
+                  target="_blank"
+                  href={`/${item.hospital1.name}`}
+                >
+                  Book
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td> {item.hospital2.name}</td>
+              <td>{item.hospital2.address}</td>
+              <td>
+                <Button
+                  variant="success"
+                  target="_blank"
+                  href={`/${item.hospital1.name}`}
+                >
+                  Book
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td> {item.hospital3.name}</td>
+              <td>{item.hospital3.address}</td>
+              <td>
+                <Button
+                  variant="success"
+                  target="_blank"
+                  href={`/${item.hospital1.name}`}
+                >
+                  Book
+                </Button>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </Container>
+    </Carousel.Item>
+  );
 }
-
 
 function App() {
   return (
@@ -125,14 +146,12 @@ function App() {
           </div>
         </div>
 
-
-
         <div className="FHcontainer">
           <div className="hospitaltable">
             <Carousel>
-
-                {best_hospitals.map( (item) => { return (get_item(item) )} )}
-              
+              {best_hospitals.map((item) => {
+                return get_item(item);
+              })}
             </Carousel>
           </div>
         </div>
