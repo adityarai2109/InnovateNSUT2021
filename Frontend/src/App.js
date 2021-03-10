@@ -17,12 +17,15 @@ import best_hospitals from "./best_hospitals_data.jsx";
 import HospitalImage from "./Components/ktvcubzt.bmp";
 import Hospital from "./Components/hospital";
 import HospitalUser from "./Components/HospitalUser";
-
+import Backendtest from "./Components/Backendtest";
+import LoginR from './Components/loginR';
+import RegisterR from "./Components/RegisterR";
 
 function get_item(item)
 {
     return(
         <Carousel.Item interval={1000} className="carouselitem">
+        
         <Container>
           <h4 className="tableheadings">Best hospitals for {item.category} </h4>
           <Table striped bordered hover variant="dark">
@@ -64,6 +67,8 @@ function get_item(item)
 function App() {
   return (
     <div className="App">
+      <LoginR />
+      <RegisterR />
       <>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand className="navbarheading" href="#home">
@@ -81,10 +86,10 @@ function App() {
             </Form>
             <Button variant="danger">Emergency</Button>
             <Form inline>
-              <Button variant="outline-primary" className="mr-2">
+              <Button variant="outline-primary" className="mr-2" to={"/login"}>
                 Log In
               </Button>
-              <Button variant="outline-light">Sign Up</Button>
+              <Button variant="outline-light" to={"/signup"}>Sign Up</Button>
             </Form>
           </div>
         </Navbar>
@@ -100,6 +105,7 @@ function App() {
               width={800}
               height={600}
               frameBorder={0}
+              title={"ourMap"}
             />
 
             <Card style={{ width: "20vw", height: "600px" }}>
@@ -259,6 +265,7 @@ function App() {
       </div>
       <Hospital />
       <HospitalUser />
+      <Backendtest />
     </div>
   );
 }
