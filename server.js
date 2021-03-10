@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const server = require('http').Server(app);
 const bodyParser = require("body-parser");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
@@ -52,9 +52,13 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.get('/hello', (req, res) =>{
+    res.send("myHello")
+})
+
 app.get('/', (req, res) =>{
     if(req.isAuthenticated()){
-        res.send('hello')
+        res.send('my hello')
     }
     else {
         res.redirect('/login')
@@ -97,22 +101,46 @@ const userSchema = new mongoose.Schema ({
     password:{
         type : String
     } ,
-    fname:{
+    fullname:{
         type : String
     },
-    lname:{
-        type : String
-    },
-    bgroup : {
-        type : String
-    },
+
     email:{
         type : String
     },
     phn :{
         type : String
     },
-    aadhar:{
+    address:{
+        type: String
+    },
+    appointment:{
+        doctor:{
+            type: String
+        },
+        aptime:{
+            type: String
+        }
+    }
+});
+const hospSchema = new mongoose.Schema ({
+    id:{
+        type : String
+    } ,
+    password:{
+        type:  String
+    },
+    name:{
+        type : String
+    },
+
+    email:{
+        type : String
+    },
+    phn :{
+        type : String
+    },
+    address:{
         type: String
     }
 });
@@ -127,12 +155,28 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
+var allUser = [];
+User.find({}, {username :1}, function (err, docs) { 
+    if (err){ 
+        console.log(err); 
+    } 
+    else{ 
+        
+        allUser = [...docs]
+        allUser = JSON.stringify(allUser)
+        console.log(allUser); 
+    } 
+}); 
+app.get('/allusers', (req, res) => {
+    res.send(allUser)
+})
+
 app.post('/register', (req, res) => {
     User.register(new User({username : req.body.username}), req.body.password, function(err, user){
         if(err){
             console.log(err)
             // res.send(err)
-            res.redirect('/register')
+            res.redirect('/login')
         }
         else{
             passport.authenticate('local')(req, res, function(){
