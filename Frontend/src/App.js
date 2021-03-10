@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Navbar } from "react-bootstrap";
@@ -9,7 +9,7 @@ import { Button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Carousel, Card, ListGroup } from "react-bootstrap";
-import Bookanappointment from "./Components/Bookanappointment";
+//import Bookanappointment from "./Components/Bookanappointment";
 import SocialFollow from "./SocialFollow";
 
 import best_hospitals from "./best_hospitals_data.jsx";
@@ -20,50 +20,90 @@ import HospitalUser from "./Components/HospitalUser";
 import Backendtest from "./Components/Backendtest";
 import LoginR from './Components/loginR';
 import RegisterR from "./Components/RegisterR";
-
-function get_item(item)
-{
-    return(
-        <Carousel.Item interval={1000} className="carouselitem">
-        
-        <Container>
-          <h4 className="tableheadings">Best hospitals for {item.category} </h4>
-          <Table striped bordered hover variant="dark">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Hospital Name</th>
-                <th>Address </th>
-                <th>Book an appointment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td> {item.hospital1.name}</td>
-                <td>{item.hospital1.address}</td>
-                <td> <button > <a href = {`/${item.hospital1.name}`}> Book </a> </button> </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td> {item.hospital2.name}</td>
-                <td>{item.hospital2.address}</td>
-                <td> <button > <a href = {`/${item.hospital2.name}`}> Book </a> </button> </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td> {item.hospital3.name}</td>
-                <td>{item.hospital3.address}</td>
-                <td> <button > <a href = {`/${item.hospital3.name} `}  target = "_blank"> Book </a> </button> </td>
-              </tr>
-            </tbody>
-          </Table>
-        </Container>
-      </Carousel.Item>
-    );
+function get_item(item) {
+  return (
+    <Carousel.Item interval={1000} className="carouselitem">
+      <Container>
+        <h4 className="tableheadings">Best hospitals for {item.category} </h4>
+        <Table striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Hospital Name</th>
+              <th>Address </th>
+              <th>Book an appointment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td> {item.hospital1.name}</td>
+              <td>{item.hospital1.address}</td>
+              <td>
+                <Button
+                  variant="success"
+                  target="_blank"
+                  href={`/${item.hospital1.name}`}
+                >
+                  Book
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td> {item.hospital2.name}</td>
+              <td>{item.hospital2.address}</td>
+              <td>
+                <Button
+                  variant="success"
+                  target="_blank"
+                  href={`/${item.hospital1.name}`}
+                >
+                  Book
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td> {item.hospital3.name}</td>
+              <td>{item.hospital3.address}</td>
+              <td>
+                <Button
+                  variant="success"
+                  target="_blank"
+                  href={`/${item.hospital1.name}`}
+                >
+                  Book
+                </Button>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </Container>
+    </Carousel.Item>
+  );
 }
 
 function App() {
+
+    let [Newsletter, SetNewsletter] = useState({
+        email : ""
+    });
+
+   // console.log(Newsletter);
+
+    function InputEvent1(event)
+    {
+        const {name, value} = event.target;
+
+        SetNewsletter( (preValue) => {
+            return{
+                ...preValue,
+                [name] : value,
+            };
+        } )
+    }
+
   return (
     <div className="App">
       <LoginR />
@@ -197,6 +237,8 @@ function App() {
           <div className="container p-4">
             {/* Section: Form */}
             <section className>
+              
+              
               <form action>
                 {/*Grid row*/}
                 <div className="row d-flex justify-content-center">
@@ -216,6 +258,9 @@ function App() {
                         id="form5Example2"
                         className="form-control"
                         placeholder="Email address..."
+                        name = "email"
+                        onChange = {InputEvent1}
+                        value = {Newsletter.email}
                       />
                     </div>
                   </div>
@@ -231,6 +276,9 @@ function App() {
                 </div>
                 {/*Grid row*/}
               </form>
+
+
+
             </section>
             {/* Section: Form */}
             {/* Section: Text */}
