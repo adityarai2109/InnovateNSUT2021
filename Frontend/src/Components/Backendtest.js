@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Backendtest() {
-    const [backendData, setBackendData] = useState([]);
-    useEffect(() => {
-        axios
-            .get("/allusers")
-            .then(function (response) {
-                const bdata = response.data
-                setBackendData(bdata[1].username);
-                console.log(bdata[1].username)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }, []);
-    return (
-        <div>
-            <h1 style={{ color: "white" }}>{backendData}hi</h1>
-        </div>
-    );
+  const [backendData, setBackendData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("/allusers")
+      .then(function (response) {
+        const bdata = response.data;
+        setBackendData(bdata[1].username);
+        console.log(bdata[1].username);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
+  return (
+    <div>
+      <h1 style={{ color: "white" }}>{backendData}</h1>
+    </div>
+  );
 }
 
 // import React, { Component } from 'react'

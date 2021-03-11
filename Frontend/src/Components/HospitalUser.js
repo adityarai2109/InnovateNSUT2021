@@ -4,36 +4,31 @@ import { Container, Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
-import { Button, Card,} from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import SocialFollow from "../SocialFollow";
 import "../App.js";
-import ImageCarousel from "../ImageCarousel";
-
+//import ImageCarousel from "../ImageCarousel";
 
 export default function HospitalUser() {
+  let [BedStatus, SetBedStatus] = useState({
+    Floor: "",
+    TotalBeds: "",
+    OccupiedBeds: "",
+    ICUBeds: "",
+    COVIDBeds: "",
+    AvailableBeds: "",
+  });
 
+  function InputEvent3(event) {
+    const { name, value } = event.target;
 
-    let [BedStatus, SetBedStatus] = useState({
-        Floor : "",
-        TotalBeds : "",
-        OccupiedBeds : "",
-        ICUBeds : "",
-        COVIDBeds : "",
-        AvailableBeds : ""
+    SetBedStatus((preValue) => {
+      return {
+        ...preValue,
+        [name]: value,
+      };
     });
-
-    function InputEvent3(event)
-    {
-        const {name, value} = event.target;
-
-        SetBedStatus( (preValue) => {
-            return{
-                ...preValue,
-                [name] : value,
-            };
-        } )
-    }
-
+  }
 
   return (
     <div className="hospital">
@@ -100,7 +95,7 @@ export default function HospitalUser() {
         </div>
       </div>
 
-      <ImageCarousel/>
+      {/* <ImageCarousel/> */}
 
       <div className="beds">
         <Container>
@@ -113,10 +108,12 @@ export default function HospitalUser() {
                 <Form.Row className="bedStatus">
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>Floor</Form.Label>
-                    <Form.Control as="select" custom
-                     name = "Floor"
-                     value = {BedStatus.Floor}
-                     onChange = {InputEvent3}
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="Floor"
+                      value={BedStatus.Floor}
+                      onChange={InputEvent3}
                     >
                       <option>1</option>
                       <option>2</option>
@@ -127,10 +124,12 @@ export default function HospitalUser() {
                   </Form.Group>
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>Total Beds</Form.Label>
-                    <Form.Control as="select" custom
-                                         name = "TotalBeds"
-                                         value = {BedStatus.TotalBeds}
-                                         onChange = {InputEvent3}
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="TotalBeds"
+                      value={BedStatus.TotalBeds}
+                      onChange={InputEvent3}
                     >
                       <option>1</option>
                       <option>2</option>
@@ -141,10 +140,12 @@ export default function HospitalUser() {
                   </Form.Group>
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>Occupied Beds</Form.Label>
-                    <Form.Control as="select" custom
-                                         name = "OccupiedBeds"
-                                         value = {BedStatus.OccupiedBeds}
-                                         onChange = {InputEvent3}
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="OccupiedBeds"
+                      value={BedStatus.OccupiedBeds}
+                      onChange={InputEvent3}
                     >
                       <option>1</option>
                       <option>2</option>
@@ -155,10 +156,12 @@ export default function HospitalUser() {
                   </Form.Group>
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>ICU Beds</Form.Label>
-                    <Form.Control as="select" custom
-                                         name = "ICUBeds"
-                                         value = {BedStatus.ICUBeds}
-                                         onChange = {InputEvent3}
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="ICUBeds"
+                      value={BedStatus.ICUBeds}
+                      onChange={InputEvent3}
                     >
                       <option>1</option>
                       <option>2</option>
@@ -169,10 +172,12 @@ export default function HospitalUser() {
                   </Form.Group>
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>COVID-19 Beds</Form.Label>
-                    <Form.Control as="select" custom
-                                         name = "COVIDBeds"
-                                         value = {BedStatus.COVIDBeds}
-                                         onChange = {InputEvent3}
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="COVIDBeds"
+                      value={BedStatus.COVIDBeds}
+                      onChange={InputEvent3}
                     >
                       <option>1</option>
                       <option>2</option>
@@ -183,10 +188,12 @@ export default function HospitalUser() {
                   </Form.Group>
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>Available Beds</Form.Label>
-                    <Form.Control as="select" custom
-                                         name = "AvailableBeds"
-                                         value = {BedStatus.AvailableBeds}
-                                         onChange = {InputEvent3}
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="AvailableBeds"
+                      value={BedStatus.AvailableBeds}
+                      onChange={InputEvent3}
                     >
                       <option>1</option>
                       <option>2</option>
@@ -198,10 +205,9 @@ export default function HospitalUser() {
                 </Form.Row>
               </Form>
               <Button variant="primary" size="lg" type="submit">
-              Save
+                Save
               </Button>
             </Card.Body>
-            
           </Card>
         </Container>
       </div>
@@ -215,7 +221,8 @@ export default function HospitalUser() {
               <Container>
                 <Form.Group>
                   <Form.Control as="select">
-                    <option>Beds </option><i>1190</i>
+                    <option>Beds </option>
+                    <i>1190</i>
                     <option> ICU</option>
                     <option>Default select </option>
                     <option>Default select </option>
@@ -229,7 +236,7 @@ export default function HospitalUser() {
               </Container>
 
               <Button variant="primary" size="lg" type="submit">
-              Save
+                Save
               </Button>
             </Card.Body>
           </Card>
